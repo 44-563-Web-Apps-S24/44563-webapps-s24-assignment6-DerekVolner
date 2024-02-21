@@ -41,9 +41,20 @@
 
 <p id="result">This text will be replaced </p>
 <p id="store">Placeholder text</p>
+
+<!---- This is part 4 ---->
+<div>
+
+    <img src="rumSquare.jpg" width="150px" height="150px" onclick="selectImage()">
+</div>
+
+
 <script> 
+    
 wrong = 0
 correct = 0
+useImage=1
+
 function resolveForm (){
     console.log("Getting form values")
     age = document.getElementById("form1_age").value
@@ -71,6 +82,32 @@ function checkAnimal(){
     }
     correctWrongCount = document.getElementById("store")
     correctWrongCount.innerHTML= "There are this many correct "+ correct + "There are this many wrong "+ wrong
+}
+
+function selectImage(){
+" make a switch on variable useImage with 3 cases"
+    switch(useImage){
+    
+        case 1:
+            imgswap=document.getElementsByTagName("img")[0]
+            imgswap.src="OrangeJuiceSquared.jpg"
+            useImage=2
+            break;
+
+        case 2:
+            imgswap=document.getElementsByTagName("img")[0]
+            imgswap.src="espressoSquared.jpg"
+            useImage=3
+            break;
+
+        case 3:
+            imgswap=document.getElementsByTagName("img")[0]
+            imgswap.src="rumSquare.jpg"
+            useImage=1
+            break;
+
+    }
+
 }
 </script>
 

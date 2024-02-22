@@ -1,0 +1,75 @@
+
+
+<!DOCTYPE html>
+<html>
+    <title>
+        Packing (based off input sample)
+    </title>
+ 
+<body>
+    <h1>
+        Derek Volner packs for a trip
+    </h1>
+
+    <form>
+        <!--the instructions say to make all the id's the same but I'm uncertain to how we would access them indivdually so I added numbers after each checkbox? -->
+        <input type="checkbox" id="checkbox1" name="check1" value="true">
+        <label for="checkbox1">Pack Light</label></br>
+      
+        <input type="checkbox" id="checkbox2" name="check2" value="true">
+        <label for="checkbox2">Carry on</label></br>
+      
+        <input type="checkbox" id="checkbox3" name="check3"  value="false">
+        <label for="checkbox3">Tablet</label></br>
+
+        <input type="button" onclick="selectPack()" value="Select for packing">
+    </form>
+<p id="part7p">filler text for part 7</p>
+<h2>Getting input</h2>
+
+<form>
+    <label for="form1_age">What is your age </label>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+
+    <label for="form1_nick">What is your nickname </label>
+    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+
+    <input type="button" onclick="resolveForm()" value="Get values from form">
+</form>
+
+
+<div id="result">This text will be replaced </div>
+
+<script> 
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+
+
+my_pack = {}
+function selectPack(){
+    my_pack={}
+    my_pack.light= document.getElementById("checkbox1").checked
+    my_pack.carry= document.getElementById("checkbox2").checked
+    my_pack.tablet =  document.getElementById("checkbox3").checked
+    /*I'm not really sure if the goal is to give back the contents or just reference my_pack directly because doing that gives us back obect, object?*/
+    document.getElementById("part7p").innerHTML= "Light " + my_pack.light + " Carry: "+ my_pack.carry + " Tablet "+ my_pack.tablet
+    
+
+
+}
+</script>
+
+</body>
+</html> 

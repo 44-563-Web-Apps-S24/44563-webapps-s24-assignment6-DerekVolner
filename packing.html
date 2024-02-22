@@ -28,36 +28,35 @@
 <h2>Getting input</h2>
 
 <form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+    <label for="month">Enter travel month </label>
+    <input type ="text" id="month" name="lastpart" value="May"> <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <label for="tripmoney">Enter price </label>
+    <input type ="text" id="tripmoney" name="lastpart" autofocus> <br>
+
+    <input type="button" onclick="updatePack()" value="Update the pack">
 </form>
 
 
 <div id="result">This text will be replaced </div>
 
 <script> 
-
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    my_pack = {}
+function updatePack (){
     
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
+    month = document.getElementById("month").value
+    trip = document.getElementById("tripmoney").value
+    /*uncertian what is mean't by use the form my_pack[...]= the notes I have for properties is : my_object.song =”Fly me to the moon”*/ 
+    my_pack["month"] = month
+    my_pack["money"] = trip
+    /*this is the closest thing I can think to being correct otherwise my_pack just returns object object and we don't use the .accessing for properties*/
+    document.getElementById("part7p").innerHTML = my_pack["month"] + " cost " + my_pack["money"]
+   
 }
 
 
-my_pack = {}
+
 function selectPack(){
     my_pack={}
     my_pack.light= document.getElementById("checkbox1").checked

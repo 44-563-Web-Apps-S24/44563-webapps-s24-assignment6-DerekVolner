@@ -3,6 +3,6 @@
 Introduction to Java Script and DOM
 
 Hosted at:
-https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-DerekVolner/animal.html
-https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-DerekVolner/discount.html
-https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-DerekVolner/packing.html
+1. https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-DerekVolner/animal.html
+2. https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-DerekVolner/discount.html
+3. https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-DerekVolner/packing.html

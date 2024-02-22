@@ -43,10 +43,27 @@
    
 </form>
 
+<!-- This is for part 6
+d.	Replace the innerHTML for the tagged element from step 3 with appropriate text (E.g. product of 2 and 5 is 10 ) 
+-->
+<form>
+    <input type="radio" id="sum" name="math" onclick="chooseOp()" value="sum">
+        <label for="sum">sum</label></br>
+    <input type="radio" id="mult" name="math" onclick="chooseOp()" value="multiply">
+        <label for="mult">multiply</label></br>
+    <input type="radio" id="exp" name ="math" value="exponent" onclick="chooseOp()">
+        <label for="exp">exponent</label></br>
+    
+    <input type="button" onclick="chooseOp()" value="Get math done">
+
+
+
+</form>
+<p id="part6">this is filler text part 6</p>
 
 <p id="result">This text will be replaced </p>
 
-<p id="taggedElement">lorem ipsum</p>
+<p id="taggedElement">filler text part 5</p>
 <script> 
 
 function resolveForm (){
@@ -65,7 +82,7 @@ function resolveForm (){
 
 /* Function for part 5*/
 function discount(){
-    /* price represents the price per item, count represents the number of tierms, discounted represents the discount percent*/
+    /* price represents the price per item, count represents the number of items, discounted represents the discount percent*/
     price = document.getElementById("price").value
     input = document.getElementById("count").value
     /*I used parseInt here because the discounted would just concat as a string and this is the only thing I found to work.*/
@@ -79,9 +96,34 @@ function discount(){
         discounted+=1
     }
     document.getElementById("taggedElement").innerHTML = toShow
+}
+/*Function for part 6*/
+function chooseOp(){
+    /*parseInting these values so they don't get treated like strings in the case of addition.*/
+    price = parseInt(document.getElementById("price").value)
+    discounted = parseInt(document.getElementById("reductions").value)
+
+    sum = document.getElementById("sum").checked
+    mult = document.getElementById("mult").checked
+    exponent = document.getElementById("exp").checked
+
+    if(sum){
+        add=price+discounted
+        document.getElementById("part6").innerHTML= price+ " + "+ discounted+ " is: "+ add
+    }
+    if(mult){
+        product=price*discounted
+        document.getElementById("part6").innerHTML= " product of " +price+" and "+ discounted+ " is " + product
+    }
+    if(exponent){
+        raised=Math.pow(price,discounted)
+        document.getElementById("part6").innerHTML=  price + " to the power of "+ discounted + " is: "+ raised
+    }
 
 
 }
+
+
 </script>
 
 </body>

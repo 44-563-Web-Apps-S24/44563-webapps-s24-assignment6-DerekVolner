@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title> 
+        Discount (input.html structure)
+    </title>
+ </head>
+<body>
+    <h1>Derek Volner discount calculations</h1>
+
+<h2>Getting input</h2>
+
+<!-- 3 input elements each with an id
+    a.	The price element holds the price per item.  Make it of type number. Give it an initial value of 10.  Label it with “Enter price per” 
+
+    b.	The count element will hold the number of items.  Give it an initial value of 9. Make it of type number. Label it with “Enter the number of items. 
+
+    c.	The reductions element will hold the percent discount.  Give it an initial value of 5. Make it of type number. Label it with “Enter the discount percent. 
+
+-->
+
+
+
+<form>
+    <label for="form1_age">What is your age </label>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+
+    <label for="form1_nick">What is your nickname </label>
+    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+
+    <input type="button" onclick="resolveForm()" value="Get values from form"> <br>
+
+    <label for="price">Enter Price per</label>
+    <input type="number" id="price"  value="10"> <br>
+
+    <label for="count">Enter the number of items</label>
+    <input type="number" id="count"  value="9"> <br>
+
+    <label for="reductions">Enter the discount percent</label>
+    <input type="number" id="reductions"  value="5"> <br>
+     
+    <input type="button" onclick="discount()" value="Show Total"> <br>
+   
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<p id="taggedElement">lorem ipsum</p>
+<script> 
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+
+/* Function for part 5*/
+function discount(){
+    /* price represents the price per item, count represents the number of tierms, discounted represents the discount percent*/
+    price = document.getElementById("price").value
+    input = document.getElementById("count").value
+    /*I used parseInt here because the discounted would just concat as a string and this is the only thing I found to work.*/
+    discounted = parseInt(document.getElementById("reductions").value)
+    myOutput =""
+    toShow=""
+    for(i=0; i<5; i++){
+        totalvalue= price*input * (1-(discounted*0.01))
+        yup=discounted
+        toShow=toShow.concat(yup+"% is "+ totalvalue+"; ")
+        discounted+=1
+    }
+    document.getElementById("taggedElement").innerHTML = toShow
+
+
+}
+</script>
+
+</body>
+</html> 
